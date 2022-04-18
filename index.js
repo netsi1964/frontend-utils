@@ -1,4 +1,4 @@
-const screen2svg = (eleSvg, x, y) => {
+function screen2svg (eleSvg, x, y) {
   const point = eleSvg.createSVGPoint()
   point.x = x
   point.y = y
