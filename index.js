@@ -5,6 +5,8 @@ function screen2svg (eleSvg, x, y) {
   return point.matrixTransform(eleSvg.getScreenCTM().inverse())
 }
 
-exports.svg = {
-  screen2svg
+export default {
+  svg: {
+    screen2svg
+  }
 }
