@@ -1,0 +1,24 @@
+{
+  "name": "frontend-utils",
+  "version": "1.0.0",
+  "description": "Various useful javascript pieces of code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netsi1964/frontend-utils.git"
+  },
+  "keywords": [
+    "utilities",
+    "javascript",
+    "svg"
+  ],
+  "author": "Sten Hougaard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/netsi1964/frontend-utils/issues"
+  },
+  "homepage": "https://github.com/netsi1964/frontend-utils#readme"
+}
