@@ -1,4 +1,4 @@
-const dom = require('./dom')
+import * as dom from './dom'
 
 function screen2svg (eleSvg, x, y) {
   const point = eleSvg.createSVGPoint()
