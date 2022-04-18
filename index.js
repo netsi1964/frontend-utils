@@ -5,8 +5,10 @@ const screen2svg = (eleSvg, x, y) => {
   return point.matrixTransform(eleSvg.getScreenCTM().inverse())
 }
 
-export default {
+const NETSI = {
   SVG: {
     screen2svg
   }
 }
+
+exports.NETSI = NETSI
