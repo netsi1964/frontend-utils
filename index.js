@@ -5,10 +5,6 @@ function screen2svg (eleSvg, x, y) {
   return point.matrixTransform(eleSvg.getScreenCTM().inverse())
 }
 
-const NETSI = {
-  SVG: {
-    screen2svg: screen2svg
-  }
+exports.svg = {
+  screen2svg
 }
-
-module.exports = NETSI
