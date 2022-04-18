@@ -1,3 +1,5 @@
+const dom = require('./dom')
+
 function screen2svg (eleSvg, x, y) {
   const point = eleSvg.createSVGPoint()
   point.x = x
@@ -8,5 +10,6 @@ function screen2svg (eleSvg, x, y) {
 export default {
   svg: {
     screen2svg
-  }
+  },
+  dom
 }
