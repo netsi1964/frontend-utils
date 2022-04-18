@@ -7,8 +7,8 @@ function screen2svg (eleSvg, x, y) {
 
 const NETSI = {
   SVG: {
-    screen2svg
+    screen2svg: screen2svg
   }
 }
 
-exports.NETSI = NETSI
+module.exports = NETSI
