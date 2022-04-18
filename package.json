@@ -1,5 +1,5 @@
 {
-  "name": "frontend-utils",
+  "name": "netsi-frontend-utils",
   "version": "1.0.0",
   "description": "Various useful javascript pieces of code",
   "main": "index.js",
