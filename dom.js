@@ -23,8 +23,10 @@ export function qsa (selector, parent = document) {
   return [...parent.querySelectorAll(selector)]
 }
 
-export function createElement (type, options = {}) {
-  const element = document.createElement(type)
+export function createElement (type, options = {}, NS = '') {
+  const element = NS
+    ? document.createElementNS(NS, type)
+    : document.createElement(type)
   Object.entries(options).forEach(([key, value]) => {
     if (key === 'class') {
       element.classList.add(value)
