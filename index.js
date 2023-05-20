@@ -1,9 +1,9 @@
-import * as dom from './dom'
-import * as svg from './svg'
-import * as geometry from './svg'
+import Dom from "./src/dom";
+import Svg from "./src/svg";
+import Geometry from "./src/svg";
 
 export default {
-  dom,
-  geometry,
-  svg
-}
+  Dom,
+  Geometry,
+  Svg,
+};
