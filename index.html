@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Utilities Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles for utility demos */
+        .utility-card {
+            transition: all 0.3s ease;
+        }
+        .utility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .code-block {
+            font-family: 'Courier New', monospace;
+            background-color: #f3f4f6;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        .demo-area {
+            border: 1px dashed #d1d5db;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-indigo-700 mb-4">Frontend Utilities Demo</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                A collection of useful frontend utility functions demonstrated with interactive examples
+            </p>
+        </header>
+
+        <!-- DOM Utilities Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">DOM Utilities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- createElement utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-code text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">createElement</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Creates a DOM element with specified attributes and children.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>const el = createElement('div', { class: 'box' }, 'Hello World');</code>
+                    </div>
+                    
+                    <button onclick="demoCreateElement()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                        Try It
+                    </button>
+                    
+                    <div id="createElementDemo" class="demo-area mt-4 hidden">
+                        <!-- Demo output will appear here -->
+                    </div>
+                </div>
+
+                <!-- toggleClass utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-toggle-on text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">toggleClass</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Toggles a CSS class on a DOM element.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>toggleClass(element, 'active');</code>
+                    </div>
+                    
+                    <button id="toggleClassBtn" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                        Toggle Class
+                    </button>
+                    
+                    <div class="demo-area mt-4">
+                        <div id="toggleClassDemo" class="p-4 bg-gray-100 rounded">
+                            Watch my background change when you click the button
+                        </div>
+                    </div>
+                </div>
+
+                <!-- debounce utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-clock text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">debounce</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Delays the execution of a function until after a specified wait time.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>const debouncedFn = debounce(myFunction, 300);</code>
+                    </div>
+                    
+                    <div class="demo-area">
+                        <input type="text" id="debounceInput" placeholder="Type here..." 
+                               class="w-full p-2 border rounded">
+                        <p id="debounceOutput" class="mt-2 text-gray-600">Output will appear here after you stop typing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- String Utilities Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">String Utilities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- truncate utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-cut text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">truncate</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Truncates a string to a specified length and adds an ellipsis.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>truncate('Long text to truncate', 10);</code>
+                    </div>
+                    
+                    <button onclick="demoTruncate()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                        Try It
+                    </button>
+                    
+                    <div class="demo-area mt-4">
+                        <p id="truncateDemo" class="text-gray-600">
+                            This is a very long string that will be truncated when you click the button.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- capitalize utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-text-height text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">capitalize</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Capitalizes the first letter of a string.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>capitalize('hello world'); // 'Hello world'</code>
+                    </div>
+                    
+                    <div class="demo-area">
+                        <input type="text" id="capitalizeInput" placeholder="Type something..." 
+                               class="w-full p-2 border rounded mb-2">
+                        <button onclick="demoCapitalize()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                            Capitalize
+                        </button>
+                        <p id="capitalizeOutput" class="mt-2 text-gray-600"></p>
+                    </div>
+                </div>
+
+                <!-- stripHtml utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-code text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">stripHtml</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Removes HTML tags from a string.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>stripHtml('&lt;p&gt;Hello&lt;/p&gt;'); // 'Hello'</code>
+                    </div>
+                    
+                    <div class="demo-area">
+                        <textarea id="stripHtmlInput" class="w-full p-2 border rounded mb-2" rows="3">
+<p>This is <strong>HTML</strong> content that will be stripped.</p>
+                        </textarea>
+                        <button onclick="demoStripHtml()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                            Strip HTML
+                        </button>
+                        <p id="stripHtmlOutput" class="mt-2 text-gray-600"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browser Utilities Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Browser Utilities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- getQueryParam utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-link text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">getQueryParam</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Gets a query parameter value from the URL.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>getQueryParam('id');</code>
+                    </div>
+                    
+                    <button onclick="demoGetQueryParam()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                        Try It
+                    </button>
+                    
+                    <div class="demo-area mt-4">
+                        <p id="queryParamDemo" class="text-gray-600">
+                            Current URL: <span id="currentUrl" class="font-mono text-sm"></span>
+                        </p>
+                        <p id="queryParamResult" class="mt-2"></p>
+                    </div>
+                </div>
+
+                <!-- scrollTo utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-arrow-down text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">scrollTo</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Smoothly scrolls to a specified element or position.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>scrollTo('#section', 800);</code>
+                    </div>
+                    
+                    <button onclick="demoScrollTo()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                        Scroll to Footer
+                    </button>
+                    
+                    <div class="demo-area mt-4 h-40 overflow-y-auto border p-4" id="scrollContainer">
+                        <p class="mb-4">Scrollable content area...</p>
+                        <p class="mb-4">Keep scrolling down...</p>
+                        <p class="mb-4">Almost there...</p>
+                        <p id="scrollTarget" class="text-green-600 font-bold">This is the target element!</p>
+                    </div>
+                </div>
+
+                <!-- isMobile utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-mobile-alt text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">isMobile</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Detects if the current device is a mobile device.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>if (isMobile()) { /* mobile code */ }</code>
+                    </div>
+                    
+                    <button onclick="demoIsMobile()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                        Check Device
+                    </button>
+                    
+                    <div class="demo-area mt-4">
+                        <p id="isMobileResult" class="text-gray-600"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Number Utilities Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Number Utilities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- randomInt utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-random text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">randomInt</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Generates a random integer between min and max (inclusive).</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>randomInt(1, 10); // Random number between 1-10</code>
+                    </div>
+                    
+                    <div class="demo-area">
+                        <div class="flex mb-4">
+                            <input type="number" id="randomMin" value="1" class="w-20 p-2 border rounded mr-2">
+                            <span class="flex items-center">to</span>
+                            <input type="number" id="randomMax" value="10" class="w-20 p-2 border rounded ml-2">
+                        </div>
+                        <button onclick="demoRandomInt()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                            Generate
+                        </button>
+                        <p id="randomIntResult" class="mt-2 text-2xl font-bold text-indigo-600"></p>
+                    </div>
+                </div>
+
+                <!-- formatNumber utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-dollar-sign text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">formatNumber</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Formats a number with thousands separators.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>formatNumber(1234567); // '1,234,567'</code>
+                    </div>
+                    
+                    <div class="demo-area">
+                        <input type="number" id="formatNumberInput" value="1234567" 
+                               class="w-full p-2 border rounded mb-2">
+                        <button onclick="demoFormatNumber()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                            Format
+                        </button>
+                        <p id="formatNumberResult" class="mt-2 text-gray-600"></p>
+                    </div>
+                </div>
+
+                <!-- clamp utility -->
+                <div class="utility-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-arrows-alt-h text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">clamp</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Restricts a number between a minimum and maximum value.</p>
+                    
+                    <div class="code-block mb-4">
+                        <code>clamp(15, 10, 20); // 15<br>clamp(5, 10, 20); // 10</code>
+                    </div>
+                    
+                    <div class="demo-area">
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <div>
+                                <label class="block text-sm text-gray-600 mb-1">Value</label>
+                                <input type="number" id="clampValue" value="15" class="w-full p-2 border rounded">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-600 mb-1">Min</label>
+                                <input type="number" id="clampMin" value="10" class="w-full p-2 border rounded">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-600 mb-1">Max</label>
+                                <input type="number" id="clampMax" value="20" class="w-full p-2 border rounded">
+                            </div>
+                        </div>
+                        <button onclick="demoClamp()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                            Clamp
+                        </button>
+                        <p id="clampResult" class="mt-2 text-gray-600"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-12 pt-8 border-t border-gray-200 text-center text-gray-600">
+            <p>Frontend Utilities Demo - Based on <a href="https://github.com/netsi1964/frontend-utils" class="text-indigo-600 hover:underline">netsi1964/frontend-utils</a></p>
+            <p class="mt-2">Click buttons to see the utilities in action</p>
+        </footer>
+    </div>
+
+    <script>
+        // Utility functions implementation
+        function createElement(tag, attributes = {}, ...children) {
+            const element = document.createElement(tag);
+            
+            for (const [key, value] of Object.entries(attributes)) {
+                if (key === 'class') {
+                    element.className = value;
+                } else {
+                    element.setAttribute(key, value);
+                }
+            }
+            
+            children.forEach(child => {
+                if (typeof child === 'string') {
+                    element.appendChild(document.createTextNode(child));
+                } else if (child instanceof Node) {
+                    element.appendChild(child);
+                }
+            });
+            
+            return element;
+        }
+
+        function toggleClass(element, className) {
+            if (typeof element === 'string') {
+                element = document.querySelector(element);
+            }
+            element.classList.toggle(className);
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        function truncate(str, length) {
+            if (str.length <= length) return str;
+            return str.substring(0, length) + '...';
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function stripHtml(html) {
+            const tmp = document.createElement('div');
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || '';
+        }
+
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function scrollTo(element, duration = 1000) {
+            const target = typeof element === 'string' 
+                ? document.querySelector(element) 
+                : element;
+            const targetPosition = target.getBoundingClientRect().top;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function easeInOutQuad(t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t + b;
+                t--;
+                return -c/2 * (t*(t-2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function randomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function clamp(value, min, max) {
+            return Math.min(Math.max(value, min), max);
+        }
+
+        // Demo functions
+        function demoCreateElement() {
+            const demoArea = document.getElementById('createElementDemo');
+            demoArea.innerHTML = '';
+            
+            const box = createElement('div', { 
+                class: 'bg-blue-100 border border-blue-300 p-4 rounded text-blue-800'
+            }, 'This element was created with createElement()');
+            
+            demoArea.appendChild(box);
+            demoArea.classList.remove('hidden');
+        }
+
+        document.getElementById('toggleClassBtn').addEventListener('click', function() {
+            const demoElement = document.getElementById('toggleClassDemo');
+            toggleClass(demoElement, 'bg-indigo-100');
+            toggleClass(demoElement, 'border-indigo-300');
+        });
+
+        const debouncedInput = debounce(function(e) {
+            document.getElementById('debounceOutput').textContent = 
+                `Debounced output: ${e.target.value}`;
+        }, 500);
+
+        document.getElementById('debounceInput').addEventListener('input', debouncedInput);
+
+        function demoTruncate() {
+            const text = document.getElementById('truncateDemo').textContent;
+            document.getElementById('truncateDemo').textContent = truncate(text, 20);
+        }
+
+        function demoCapitalize() {
+            const input = document.getElementById('capitalizeInput').value;
+            document.getElementById('capitalizeOutput').textContent = capitalize(input);
+        }
+
+        function demoStripHtml() {
+            const input = document.getElementById('stripHtmlInput').value;
+            document.getElementById('stripHtmlOutput').textContent = stripHtml(input);
+        }
+
+        function demoGetQueryParam() {
+            document.getElementById('currentUrl').textContent = window.location.href;
+            const param = getQueryParam('demo');
+            const result = param 
+                ? `Query parameter "demo" value: ${param}` 
+                : 'No "demo" query parameter found. Try adding ?demo=test to the URL.';
+            document.getElementById('queryParamResult').textContent = result;
+        }
+
+        function demoScrollTo() {
+            const container = document.getElementById('scrollContainer');
+            scrollTo('#scrollTarget', 800, container);
+        }
+
+        function demoIsMobile() {
+            const result = isMobile() 
+                ? 'You are using a mobile device!' 
+                : 'You are not using a mobile device.';
+            document.getElementById('isMobileResult').textContent = result;
+        }
+
+        function demoRandomInt() {
+            const min = parseInt(document.getElementById('randomMin').value) || 1;
+            const max = parseInt(document.getElementById('randomMax').value) || 10;
+            document.getElementById('randomIntResult').textContent = randomInt(min, max);
+        }
+
+        function demoFormatNumber() {
+            const num = document.getElementById('formatNumberInput').value;
+            document.getElementById('formatNumberResult').textContent = formatNumber(num);
+        }
+
+        function demoClamp() {
+            const value = parseFloat(document.getElementById('clampValue').value) || 0;
+            const min = parseFloat(document.getElementById('clampMin').value) || 0;
+            const max = parseFloat(document.getElementById('clampMax').value) || 0;
+            
+            const result = clamp(value, min, max);
+            document.getElementById('clampResult').textContent = 
+                `Clamped value: ${result} (Original: ${value}, Range: ${min}-${max})`;
+        }
+
+        // Initialize some demos
+        document.addEventListener('DOMContentLoaded', function() {
+            demoGetQueryParam();
+            demoIsMobile();
+        });
+    </script>
+</body>
+</html>
